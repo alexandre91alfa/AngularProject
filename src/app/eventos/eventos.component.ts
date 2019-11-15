@@ -16,7 +16,7 @@ export class EventosComponent implements OnInit {
   }
 
   getEventos(): any {
-    this.http.get("http://127.0.0.1:5000/api/values").subscribe(
+    this.http.get("https://jsonplaceholder.typicode.com/todos").subscribe(
       respose => {
         this.eventos = respose;
       },
