@@ -1,8 +1,29 @@
-<h1>Lista de eventos</h1>
-
-<div *ngFor="let item of eventos">
-  Id: {{ item.id }}
-  <br />
-  Titulo: {{ item.title }}
-  <hr />
-</div>
+<br />
+<form class="form-inline">
+  <div class="formGroup mb-2">
+    <input type="text" class="form-control mr-2" placeholder="Buscar" />
+    <button class="btn btn-outline-success">Buscar</button>
+  </div>
+</form>
+<br />
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>TITULO</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let item of eventos">
+      <td>{{ item.id }}</td>
+      <td>{{ item.title }}</td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!eventos.length">
+    <tr>
+      <td colspan="2" class="text-center">
+        <h4>Nenhum evento encontrado</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>
